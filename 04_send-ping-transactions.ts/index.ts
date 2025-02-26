@@ -10,7 +10,8 @@ export const pingTransactions = async () => {
   const secret = Uint8Array.from(JSON.parse(process.env.ACC_1_SECRET_KEY!));
   const payer = Keypair.fromSecretKey(secret);
 
-  const connection = new web3.Connection("http://localhost:8899", "confirmed");
+  // we doing devnet, cauz no ping program on local
+  const connection = new web3.Connection(web3.clusterApiUrl("devnet"));
   const transaction = new web3.Transaction();
   const programId = new web3.PublicKey(PING_PROGRAM_ADDRESS);
   const pingProgramDataId = new web3.PublicKey(PING_PROGRAM_DATA_ADDRESS);
@@ -18,7 +19,7 @@ export const pingTransactions = async () => {
   const instruction = new web3.TransactionInstruction({
     keys: [
       {
-        pubkey: payer.publicKey,
+        pubkey: pingProgramDataId,
         isSigner: false,
         isWritable: true,
       },
@@ -34,12 +35,9 @@ export const pingTransactions = async () => {
     [payer]
   );
 
-  // If you want to make it easier to look at Solana Explorer for transactions on localnet in the future, simply change your console.log to the following:
-  console.info(
-    `You can view your transaction on Solana Explorer at:\nhttps://explorer.solana.com/tx/${signature}?cluster=custom&customUrl=http%3A%2F%2Flocalhost%3A8899`
+  console.log(
+    `You can view your transaction on Solana Explorer at:\nhttps://explorer.solana.com/tx/${signature}?cluster=devnet`
   );
-
-  console.log(`✅ Transaction completed! Signature is ${signature}`);
 };
 
 pingTransactions();
