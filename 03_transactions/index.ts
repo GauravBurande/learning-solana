@@ -9,7 +9,7 @@ import {
 } from "@solana/web3.js";
 import "dotenv/config";
 
-export const transaction = async (
+export const transfer = async (
   keyPair: Keypair,
   recipientAddress: string,
   amount: number
@@ -45,4 +45,4 @@ export const transaction = async (
 const secret = Uint8Array.from(JSON.parse(process.env.ACC_1_SECRET_KEY!));
 const keyPair = Keypair.fromSecretKey(secret);
 
-// transaction(keyPair, account2PubKey, 1);
+// transfer(keyPair, account2PubKey, 1);
