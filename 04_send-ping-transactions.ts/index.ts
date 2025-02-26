@@ -25,4 +25,21 @@ export const pingTransactions = async () => {
     ],
     programId,
   });
+
+  transaction.add(instruction);
+
+  const signature = await web3.sendAndConfirmTransaction(
+    connection,
+    transaction,
+    [payer]
+  );
+
+  // If you want to make it easier to look at Solana Explorer for transactions on localnet in the future, simply change your console.log to the following:
+  console.info(
+    `You can view your transaction on Solana Explorer at:\nhttps://explorer.solana.com/tx/${signature}?cluster=custom&customUrl=http%3A%2F%2Flocalhost%3A8899`
+  );
+
+  console.log(`✅ Transaction completed! Signature is ${signature}`);
 };
+
+pingTransactions();
