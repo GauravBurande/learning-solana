@@ -22,7 +22,7 @@ const createToken = async (mintWallet: Keypair) => {
     mintWallet,
     mintWallet.publicKey,
     null,
-    0
+    9
   );
   return mint;
 };
@@ -44,7 +44,7 @@ const transferTokens = async (
     tokenAddress,
     mintTokenAccount.address,
     mintWallet.publicKey,
-    100000000
+    10 ** 15
   );
 
   const recipientTokenAccount = await getOrCreateAssociatedTokenAccount(
@@ -62,7 +62,7 @@ const transferTokens = async (
       mintTokenAccount.address,
       recipientTokenAccount.address,
       mintWallet.publicKey,
-      100000000,
+      10 ** 15,
       [],
       TOKEN_PROGRAM_ID
     )
