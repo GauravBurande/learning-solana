@@ -24,13 +24,11 @@ console.log(
 );
 
 const createTokenMetadata = async (
-  tokenMintString: string = TRAINING_MINT_ADDRESS
+  tokenMintAccount: PublicKey = TRAINING_MINT_ADDRESS
 ) => {
   const TOKEN_METADATA_PROGRAM_ID = new PublicKey(
     "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
   );
-
-  const tokenMintAccount = new PublicKey(tokenMintString);
 
   const metadataData = {
     name: "SPL Training Token",

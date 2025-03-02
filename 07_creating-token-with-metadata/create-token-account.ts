@@ -12,10 +12,8 @@ const user = getKeypairFromEnvironment("ACC_1_SECRET_KEY");
 
 const createTokenAccount = async (
   recipient = user.publicKey,
-  mintString = TRAINING_MINT_ADDRESS
+  mint = TRAINING_MINT_ADDRESS
 ) => {
-  const mint = new PublicKey(mintString);
-
   const tokenAccount = await getOrCreateAssociatedTokenAccount(
     connection,
     user,

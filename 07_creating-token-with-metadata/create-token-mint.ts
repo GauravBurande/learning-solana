@@ -3,7 +3,7 @@ import {
   getKeypairFromEnvironment,
 } from "@solana-developers/helpers";
 import { createMint } from "@solana/spl-token";
-import { clusterApiUrl, Connection, Keypair } from "@solana/web3.js";
+import { clusterApiUrl, Connection, Keypair, PublicKey } from "@solana/web3.js";
 import "dotenv/config";
 
 const connection = new Connection(clusterApiUrl("devnet"));
@@ -25,5 +25,6 @@ const createTokenMint = async (user: Keypair = userKeyPair) => {
 
 export default createTokenMint;
 
-export const TRAINING_MINT_ADDRESS =
-  "5qv2nmww9UAgwPDV3EYZQYhVfzL7VbRQD984m1Eu31de";
+export const TRAINING_MINT_ADDRESS = new PublicKey(
+  "5qv2nmww9UAgwPDV3EYZQYhVfzL7VbRQD984m1Eu31de"
+);

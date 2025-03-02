@@ -19,10 +19,8 @@ const RECIPIENT_TOKEN_ACCOUNT = new PublicKey(
 
 const mintTokens = async (
   recipientAssociatedTokenAccount = RECIPIENT_TOKEN_ACCOUNT,
-  mintString = TRAINING_MINT_ADDRESS
+  tokenMintAccount = TRAINING_MINT_ADDRESS
 ) => {
-  const tokenMintAccount = new PublicKey(mintString);
-
   const transactionSignature = await mintTo(
     connection,
     user,
