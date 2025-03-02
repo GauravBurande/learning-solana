@@ -24,3 +24,6 @@ const createTokenMint = async (user: Keypair = userKeyPair) => {
 };
 
 export default createTokenMint;
+
+export const TRAINING_MINT_ADDRESS =
+  "5qv2nmww9UAgwPDV3EYZQYhVfzL7VbRQD984m1Eu31de";

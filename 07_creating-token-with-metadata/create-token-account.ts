@@ -5,13 +5,14 @@ import {
 import { getOrCreateAssociatedTokenAccount } from "@solana/spl-token";
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import "dotenv/config";
+import { TRAINING_MINT_ADDRESS } from "./create-token-mint";
 
 const connection = new Connection(clusterApiUrl("devnet"));
 const user = getKeypairFromEnvironment("ACC_1_SECRET_KEY");
 
 const createTokenAccount = async (
   recipient = user.publicKey,
-  mintString = "5qv2nmww9UAgwPDV3EYZQYhVfzL7VbRQD984m1Eu31de"
+  mintString = TRAINING_MINT_ADDRESS
 ) => {
   const mint = new PublicKey(mintString);
 
@@ -23,7 +24,7 @@ const createTokenAccount = async (
   );
 
   console.log(`Token Account: ${tokenAccount.address.toBase58()}`);
-  //   7HW5xSfwigRPD4Nyx2GaiSkZGWRh2UphcadHtQSoKcsQ
+  //
 
   const link = getExplorerLink(
     "address",
@@ -35,3 +36,6 @@ const createTokenAccount = async (
 };
 
 export default createTokenAccount;
+
+export const ACC_1_TOKEN_ACCOUNT =
+  "7HW5xSfwigRPD4Nyx2GaiSkZGWRh2UphcadHtQSoKcsQ";

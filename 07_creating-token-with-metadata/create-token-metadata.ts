@@ -14,6 +14,7 @@ import {
   createCreateMetadataAccountV3Instruction,
   createUpdateMetadataAccountV2Instruction,
 } from "@metaplex-foundation/mpl-token-metadata";
+import { TRAINING_MINT_ADDRESS } from "./create-token-mint";
 
 const connection = new Connection(clusterApiUrl("devnet"));
 const user = getKeypairFromEnvironment("ACC_1_SECRET_KEY");
@@ -23,7 +24,7 @@ console.log(
 );
 
 const createTokenMetadata = async (
-  tokenMintString: string = "5qv2nmww9UAgwPDV3EYZQYhVfzL7VbRQD984m1Eu31de"
+  tokenMintString: string = TRAINING_MINT_ADDRESS
 ) => {
   const TOKEN_METADATA_PROGRAM_ID = new PublicKey(
     "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
