@@ -3,7 +3,6 @@ import {
   Connection,
   LAMPORTS_PER_SOL,
   Finality,
-  PublicKeyInitData,
 } from "@solana/web3.js";
 
 export const airdrop = async (address: PublicKey, amount: number) => {
