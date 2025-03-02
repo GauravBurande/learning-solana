@@ -2,17 +2,18 @@ import {
   getExplorerLink,
   getKeypairFromEnvironment,
 } from "@solana-developers/helpers";
-import { createMint } from "@solana/spl-token";
 import {
   clusterApiUrl,
   Connection,
-  Keypair,
   PublicKey,
   sendAndConfirmTransaction,
   Transaction,
 } from "@solana/web3.js";
 import "dotenv/config";
-import { createCreateMetadataAccountV3Instruction } from "@metaplex-foundation/mpl-token-metadata";
+import {
+  createCreateMetadataAccountV3Instruction,
+  createUpdateMetadataAccountV2Instruction,
+} from "@metaplex-foundation/mpl-token-metadata";
 
 const connection = new Connection(clusterApiUrl("devnet"));
 const user = getKeypairFromEnvironment("ACC_1_SECRET_KEY");
@@ -21,28 +22,20 @@ console.log(
   `🔑 Loaded our keypair securely, using an env file! Our public key is: ${user.publicKey.toBase58()}`
 );
 
-const createTokenMint = async () => {
-  const tokenMint = createMint(connection, user, user.publicKey, null, 2);
-
-  const link = getExplorerLink("address", tokenMint.toString(), "devnet");
-
-  console.log(`✅ Finished! Created token mint: ${link}`);
-  return tokenMint;
-};
-
-const createTokenMetadata = async () => {
+const createTokenMetadata = async (
+  tokenMintString: string = "5qv2nmww9UAgwPDV3EYZQYhVfzL7VbRQD984m1Eu31de"
+) => {
   const TOKEN_METADATA_PROGRAM_ID = new PublicKey(
     "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
   );
 
-  const tokenMint = createTokenMint();
-
-  const tokenMintAccount = new PublicKey(tokenMint);
+  const tokenMintAccount = new PublicKey(tokenMintString);
 
   const metadataData = {
     name: "SPL Training Token",
     symbol: "TRAINING",
     uri: "https://arweave.net/1234",
+    image: "https://static.wikia.nocookie.net/kidvskat/images/c/c9/Kat1.png",
     sellerFeeBasisPoints: 0,
     creators: null,
     uses: null,
@@ -103,3 +96,7 @@ const createTokenMetadata = async () => {
 
   console.log(`✅ Look at the token mint again: ${tokenMintLink}`);
 };
+
+createTokenMetadata();
+
+export default createTokenMetadata;
