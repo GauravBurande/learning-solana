@@ -1,6 +1,15 @@
 import * as web3 from "@solana/web3.js";
 import * as token from "@solana/spl-token";
 
+// const tokenAccount = await createAccount(
+//   connection,
+//   payer,
+//   mint,
+//   owner,
+//   keypair
+// );
+// how this works is:
+
 async function buildCreateTokenAccountTransaction(
   connection: web3.Connection,
   payer: web3.PublicKey,
