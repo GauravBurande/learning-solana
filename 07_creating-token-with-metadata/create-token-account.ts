@@ -31,6 +31,7 @@ const createTokenAccount = async (
   );
 
   console.log(`✅ Created token Account: ${link}`);
+  return tokenAccount.address;
 };
 
 export default createTokenAccount;

@@ -126,6 +126,7 @@ const createTokenMetadata = async (
   );
 
   console.log(`✅ Look at the token mint again: ${tokenMintLink}`);
+  return tokenMintLink;
 };
 
 export default createTokenMetadata;

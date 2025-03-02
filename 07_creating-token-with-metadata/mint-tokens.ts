@@ -37,6 +37,7 @@ const mintTokens = async (
   );
 
   console.log(`✅ Success! Mint Token Transaction: ${link}`);
+  return link;
 };
 
 export default mintTokens;
