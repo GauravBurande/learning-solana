@@ -12,7 +12,7 @@ import {
   sendAndConfirmTransaction,
   Transaction,
 } from "@solana/web3.js";
-import { account1PubKey, airdrop } from "../01_airdrop";
+import { ACCOUNT_1_PUBLIC_KEY, airdrop } from "../01_airdrop";
 
 const connection = new Connection("http://localhost:8899", "confirmed");
 
@@ -82,6 +82,6 @@ const transferTokens = async (
   await transferTokens(
     creatorTokenAddress,
     mintWallet,
-    new PublicKey(account1PubKey)
+    new PublicKey(ACCOUNT_1_PUBLIC_KEY)
   );
 })();

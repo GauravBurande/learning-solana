@@ -45,4 +45,4 @@ export const transfer = async (
 const secret = Uint8Array.from(JSON.parse(process.env.ACC_1_SECRET_KEY!));
 const keyPair = Keypair.fromSecretKey(secret);
 
-// transfer(keyPair, account2PubKey, 1);
+// transfer(keyPair, ACCOUNT_2_PUBLIC_KEY, 1);

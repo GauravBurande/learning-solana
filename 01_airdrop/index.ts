@@ -27,5 +27,7 @@ export const airdrop = async (address: PublicKey, amount: number) => {
   console.log("airdrop done");
 };
 
-export const account1PubKey = "GCU7QCC3pvyXkCKeqfaHpaUyqY9KatX5Z4k65vBsPaHZ";
-export const account2PubKey = "CVWKeHVRiE98aUZtviDx6rX5TBQkW93i2xXMrGXoVj7w";
+export const ACCOUNT_1_PUBLIC_KEY =
+  "GCU7QCC3pvyXkCKeqfaHpaUyqY9KatX5Z4k65vBsPaHZ";
+export const ACCOUNT_2_PUBLIC_KEY =
+  "CVWKeHVRiE98aUZtviDx6rX5TBQkW93i2xXMrGXoVj7w";

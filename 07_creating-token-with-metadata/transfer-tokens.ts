@@ -3,7 +3,7 @@ import {
   getKeypairFromEnvironment,
 } from "@solana-developers/helpers";
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
-import { account2PubKey } from "../01_airdrop";
+import { ACCOUNT_2_PUBLIC_KEY } from "../01_airdrop";
 import { TRAINING_MINT_ADDRESS } from "./create-token-mint";
 import { getOrCreateAssociatedTokenAccount, transfer } from "@solana/spl-token";
 
@@ -15,7 +15,7 @@ console.log(
   `🔑 Loaded our keypair securely, using an env file! Our public key is: ${me.publicKey.toBase58()}`
 );
 
-const my2ndAccount = new PublicKey(account2PubKey);
+const my2ndAccount = new PublicKey(ACCOUNT_2_PUBLIC_KEY);
 
 const tokenMintAccount = new PublicKey(TRAINING_MINT_ADDRESS);
 
