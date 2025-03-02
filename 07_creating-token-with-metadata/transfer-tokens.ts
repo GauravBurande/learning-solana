@@ -63,6 +63,4 @@ const transferTokens = async (
   console.log(`✅ Transaction confirmed, explorer link is: ${explorerLink}`);
 };
 
-transferTokens();
-
 export default transferTokens;
