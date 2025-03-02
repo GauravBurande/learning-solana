@@ -34,9 +34,8 @@ const createTokenMetadata = async (
   const metadataData = {
     name: "SPL Training Token",
     symbol: "TRAINING",
-    uri: "https://arweave.net/1234",
-    image: "https://static.wikia.nocookie.net/kidvskat/images/c/c9/Kat1.png",
     sellerFeeBasisPoints: 0,
+    uri: "https://raw.githubusercontent.com/GauravBurande/supermemory/refs/heads/main/apps/web/public/images/landing_vault.png",
     creators: null,
     uses: null,
     collection: null,
@@ -53,27 +52,60 @@ const createTokenMetadata = async (
 
   const metadataPDA = metadataPDAAndBump[0];
 
+  // Check if metadata account already exists
+  let metadataAccountExists = false;
+  try {
+    const accountInfo = await connection.getAccountInfo(metadataPDA);
+    if (accountInfo !== null) {
+      metadataAccountExists = true;
+    }
+  } catch (error) {
+    console.log("Metadata account not found, creating a new one...");
+  }
+
   const transaction = new Transaction();
 
-  const createMetadataAccountInstruction =
-    createCreateMetadataAccountV3Instruction(
-      {
-        metadata: metadataPDA,
-        mint: tokenMintAccount,
-        mintAuthority: user.publicKey,
-        payer: user.publicKey,
-        updateAuthority: user.publicKey,
-      },
-      {
-        createMetadataAccountArgsV3: {
-          collectionDetails: null,
-          data: metadataData,
-          isMutable: true,
+  if (!metadataAccountExists) {
+    console.log("Creating new metadata account...");
+    const createMetadataAccountInstruction =
+      createCreateMetadataAccountV3Instruction(
+        {
+          metadata: metadataPDA,
+          mint: tokenMintAccount,
+          mintAuthority: user.publicKey,
+          payer: user.publicKey,
+          updateAuthority: user.publicKey,
         },
-      }
-    );
+        {
+          createMetadataAccountArgsV3: {
+            collectionDetails: null,
+            data: metadataData,
+            isMutable: true,
+          },
+        }
+      );
 
-  transaction.add(createMetadataAccountInstruction);
+    transaction.add(createMetadataAccountInstruction);
+  } else {
+    console.log("Metadata account exists, updating...");
+    const updateMetadataAccountInstruction =
+      createUpdateMetadataAccountV2Instruction(
+        {
+          metadata: metadataPDA,
+          updateAuthority: user.publicKey,
+        },
+        {
+          updateMetadataAccountArgsV2: {
+            data: metadataData,
+            updateAuthority: user.publicKey,
+            primarySaleHappened: false,
+            isMutable: true,
+          },
+        }
+      );
+
+    transaction.add(updateMetadataAccountInstruction);
+  }
 
   const transactionSignature = await sendAndConfirmTransaction(
     connection,
