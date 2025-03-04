@@ -10,6 +10,8 @@ import {
   Transaction,
 } from "@solana/web3.js";
 import "dotenv/config";
+// this actually uses: @metaplex-foundation/mpl-token-metadata 2.13.0
+// todo update the code for the latest version: 3.4.0
 import {
   createCreateMetadataAccountV3Instruction,
   createUpdateMetadataAccountV2Instruction,
