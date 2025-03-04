@@ -11,6 +11,7 @@ import {
 } from "@solana/web3.js";
 import "dotenv/config";
 import { TRAINING_MINT_ADDRESS } from "../../07_creating-token-with-metadata/create-token-mint";
+import { ACCOUNT_2_PUBLIC_KEY } from "../../01_airdrop";
 
 const DEVNET_URL = clusterApiUrl("devnet");
 const TOKEN_DECIMALS = 2;
@@ -30,7 +31,8 @@ const delegateTokens = async (user = me, mint = TRAINING_MINT_ADDRESS) => {
     );
 
     // For this example, we will be using System Program's ID as a delegate
-    const delegatePublicKey = new PublicKey(SystemProgram.programId);
+    // const delegatePublicKey = new PublicKey(SystemProgram.programId);
+    const delegatePublicKey = new PublicKey(ACCOUNT_2_PUBLIC_KEY);
 
     const approveTransactionSignature = await approve(
       connection,
