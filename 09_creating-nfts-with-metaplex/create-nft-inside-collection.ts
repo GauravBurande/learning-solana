@@ -13,23 +13,25 @@ import { createNft } from "@metaplex-foundation/mpl-token-metadata";
 const createNFTInsideCollection = async () => {
   const collectionNftAddress = UMIPublicKey(NFT_COLLECTION_ADDRESS);
 
-  const imageFilePath = path.join(
-    process.cwd(),
-    "09_creating-nfts-with-metaplex/arena-2.png"
-  );
+  // const imageFilePath = path.join(
+  //   process.cwd(),
+  //   "09_creating-nfts-with-metaplex/arena-3.png"
+  // );
 
-  const buffer = await fs.readFile(imageFilePath);
-  const file = createGenericFile(buffer, imageFilePath, {
-    contentType: "image/png",
-  });
+  // const buffer = await fs.readFile(imageFilePath);
+  // const file = createGenericFile(buffer, imageFilePath, {
+  //   contentType: "image/png",
+  // });
 
-  const [image] = await umi.uploader.upload([file]);
-  console.log("NFT image URI:", image);
+  // const [image] = await umi.uploader.upload([file]);
+  // console.log("NFT image URI:", image);
+
+  const image = `https://raw.githubusercontent.com/GauravBurande/learning-solana/refs/heads/main/09_creating-nfts-with-metaplex/arena-3.png`;
 
   const uri = await umi.uploader.uploadJson({
-    name: "Arena 2",
-    symbol: "A2",
-    description: `"Lady Nyxara and Seraphine, the Starlit Realm's champions, are a formidable pair—Nyxara's dark magic in obsidian contrasts Seraphine's celestial grace in white. Their enchanted garden kiss binds their powers. Together, they defend with unbreakable harmony.`,
+    name: "Arena 3",
+    symbol: "A3",
+    description: `"Scarlet Fang, the White-Maned Fury of the Crimson Wastes, strikes fear with her blazing crimson eyes and mystical third-eye rune that channels ancient desert magic. Her elaborate ceremonial garb—adorned with protective sigils and geometric patterns—belies a tactical brilliance that has left a hundred champions broken beneath the unforgiving arena sands.`,
     image,
   });
   console.log("Collection offchain metadata URI:", uri);
@@ -39,8 +41,8 @@ const createNFTInsideCollection = async () => {
   const transaction = createNft(umi, {
     mint,
     uri,
-    name: "Arena 2",
-    symbol: "A2",
+    name: "Arena 3",
+    symbol: "A3",
     updateAuthority: umi.identity.publicKey,
     sellerFeeBasisPoints: percentAmount(0),
     collection: {
@@ -63,6 +65,9 @@ export const ARENA_1_NFT_ADDRESS =
 
 export const ARENA_2_NFT_ADDRESS =
   "9s6Po7oq4qHinzPdqPA9tFpq4YqzixgJa3ECKFTA9s1N";
+
+export const ARENA_3_NFT_ADDRESS =
+  "G9yUZJUivtSaykHMbw7kmUR2iqxf4x2rFrQYz3qdAcK1";
 
 // assignment: create nfts for arena 2 - 11 in this collection and verify them using the verifyMetaplexNFT function.
 
