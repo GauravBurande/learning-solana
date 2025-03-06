@@ -26,12 +26,12 @@ const createNFTInsideCollection = async () => {
   // const [image] = await umi.uploader.upload([file]);
   // console.log("NFT image URI:", image);
 
-  const image = `https://raw.githubusercontent.com/GauravBurande/learning-solana/refs/heads/main/09_creating-nfts-with-metaplex/arena-7.png`;
+  const image = `https://raw.githubusercontent.com/GauravBurande/learning-solana/refs/heads/main/09_creating-nfts-with-metaplex/arena-11.png`;
 
   const uri = await umi.uploader.uploadJson({
-    name: "Arena 7",
-    symbol: "A7",
-    description: `In the shattered realm of Eryndor, Kaelith the Emberblade stands as champion, her fiery hair and golden goggles blazing with arcane power. Clad in mystical white armor, she wields a radiant gem, symbol of her triumph over darkness. Her elven grace belies a fierce spirit, forged in the crucible of endless battles.`,
+    name: "Arena 11",
+    symbol: "A11",
+    description: `In the neon-lit realm of Zorathis, Veyra the Stormweaver commands lightning, her silver hair crackling with power. Clad in a flowing white coat, she harnesses the city’s energy to dominate the arena. Her piercing gaze strikes fear into all challengers.`,
     image,
   });
   console.log("Collection offchain metadata URI:", uri);
@@ -41,8 +41,8 @@ const createNFTInsideCollection = async () => {
   const transaction = createNft(umi, {
     mint,
     uri,
-    name: "Arena 7",
-    symbol: "A7",
+    name: "Arena 11",
+    symbol: "A11",
     updateAuthority: umi.identity.publicKey,
     sellerFeeBasisPoints: percentAmount(0),
     collection: {
@@ -71,6 +71,9 @@ export const ARENA_3_NFT_ADDRESS =
 
 export const ARENA_7_NFT_ADDRESS =
   "6FeSPTFALVsRYSNS32JrYVQdfPvjCuqEM8BeVLmLDBzB";
+
+export const ARENA_11_NFT_ADDRESS =
+  "8XurBgd5yXTeU6BMG8WFqfqJwjyc1dcGKcXJXKPetdxS";
 
 // assignment: create nfts for arena 2 - 11 in this collection and verify them using the verifyMetaplexNFT function.
 

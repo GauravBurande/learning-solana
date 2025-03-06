@@ -3,12 +3,12 @@ import {
   verifyCollectionV1,
 } from "@metaplex-foundation/mpl-token-metadata";
 import { NFT_COLLECTION_ADDRESS, umi } from "./create-nft-collection";
-import { ARENA_7_NFT_ADDRESS } from "./create-nft-inside-collection";
+import { ARENA_11_NFT_ADDRESS } from "./create-nft-inside-collection";
 import { publicKey as UMIPublicKey } from "@metaplex-foundation/umi";
 import { getExplorerLink } from "@solana-developers/helpers";
 
 const verifyMetaplexNFT = async (
-  nftAddressString: string = ARENA_7_NFT_ADDRESS,
+  nftAddressString: string = ARENA_11_NFT_ADDRESS,
   nftColletionAddressString: string = NFT_COLLECTION_ADDRESS
 ) => {
   console.log("Verifying Metaplex NFT...");
