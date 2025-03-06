@@ -26,12 +26,12 @@ const createNFTInsideCollection = async () => {
   // const [image] = await umi.uploader.upload([file]);
   // console.log("NFT image URI:", image);
 
-  const image = `https://raw.githubusercontent.com/GauravBurande/learning-solana/refs/heads/main/09_creating-nfts-with-metaplex/arena-3.png`;
+  const image = `https://raw.githubusercontent.com/GauravBurande/learning-solana/refs/heads/main/09_creating-nfts-with-metaplex/arena-7.png`;
 
   const uri = await umi.uploader.uploadJson({
-    name: "Arena 3",
-    symbol: "A3",
-    description: `"Scarlet Fang, the White-Maned Fury of the Crimson Wastes, strikes fear with her blazing crimson eyes and mystical third-eye rune that channels ancient desert magic. Her elaborate ceremonial garb—adorned with protective sigils and geometric patterns—belies a tactical brilliance that has left a hundred champions broken beneath the unforgiving arena sands.`,
+    name: "Arena 7",
+    symbol: "A7",
+    description: `In the shattered realm of Eryndor, Kaelith the Emberblade stands as champion, her fiery hair and golden goggles blazing with arcane power. Clad in mystical white armor, she wields a radiant gem, symbol of her triumph over darkness. Her elven grace belies a fierce spirit, forged in the crucible of endless battles.`,
     image,
   });
   console.log("Collection offchain metadata URI:", uri);
@@ -41,8 +41,8 @@ const createNFTInsideCollection = async () => {
   const transaction = createNft(umi, {
     mint,
     uri,
-    name: "Arena 3",
-    symbol: "A3",
+    name: "Arena 7",
+    symbol: "A7",
     updateAuthority: umi.identity.publicKey,
     sellerFeeBasisPoints: percentAmount(0),
     collection: {
@@ -68,6 +68,9 @@ export const ARENA_2_NFT_ADDRESS =
 
 export const ARENA_3_NFT_ADDRESS =
   "G9yUZJUivtSaykHMbw7kmUR2iqxf4x2rFrQYz3qdAcK1";
+
+export const ARENA_7_NFT_ADDRESS =
+  "6FeSPTFALVsRYSNS32JrYVQdfPvjCuqEM8BeVLmLDBzB";
 
 // assignment: create nfts for arena 2 - 11 in this collection and verify them using the verifyMetaplexNFT function.
 
