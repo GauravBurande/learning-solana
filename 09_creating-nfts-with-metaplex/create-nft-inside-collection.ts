@@ -15,7 +15,7 @@ const createNFTInsideCollection = async () => {
 
   const imageFilePath = path.join(
     process.cwd(),
-    "09_creating-nfts-with-metaplex/arena-1.png"
+    "09_creating-nfts-with-metaplex/arena-2.png"
   );
 
   const buffer = await fs.readFile(imageFilePath);
@@ -27,9 +27,9 @@ const createNFTInsideCollection = async () => {
   console.log("NFT image URI:", image);
 
   const uri = await umi.uploader.uploadJson({
-    name: "Arena 1",
-    symbol: "A1",
-    description: `""The Nine-Tailed Strategist" - From the mystical Eastern Forest Realm comes the legendary fennec fox spirit who outsmarts opponents with tactical brilliance and ancient magic, wielding fan and dagger with lethal precision while nine enchanted tails manifest the wisdom of centuries...`,
+    name: "Arena 2",
+    symbol: "A2",
+    description: `"Lady Nyxara and Seraphine, the Starlit Realm's champions, are a formidable pair—Nyxara's dark magic in obsidian contrasts Seraphine's celestial grace in white. Their enchanted garden kiss binds their powers. Together, they defend with unbreakable harmony.`,
     image,
   });
   console.log("Collection offchain metadata URI:", uri);
@@ -39,8 +39,8 @@ const createNFTInsideCollection = async () => {
   const transaction = createNft(umi, {
     mint,
     uri,
-    name: "Arena 1",
-    symbol: "A1",
+    name: "Arena 2",
+    symbol: "A2",
     updateAuthority: umi.identity.publicKey,
     sellerFeeBasisPoints: percentAmount(0),
     collection: {
@@ -55,10 +55,14 @@ const createNFTInsideCollection = async () => {
   console.log(`Token Mint:  ${explorerLink}`);
 };
 
+createNFTInsideCollection();
 export default createNFTInsideCollection;
 
 export const ARENA_1_NFT_ADDRESS =
   "8WrxAf7RvAYLmZzWofFHd15JKHwmz55FiJ6UuHshPzSb";
+
+export const ARENA_2_NFT_ADDRESS =
+  "9s6Po7oq4qHinzPdqPA9tFpq4YqzixgJa3ECKFTA9s1N";
 
 // assignment: create nfts for arena 2 - 11 in this collection and verify them using the verifyMetaplexNFT function.
 
