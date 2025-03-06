@@ -31,5 +31,5 @@ const verifyMetaplexNFT = async (
   console.log("✅ Metaplex NFT verified!");
 };
 
-verifyMetaplexNFT();
+// verifyMetaplexNFT();
 export default verifyMetaplexNFT;

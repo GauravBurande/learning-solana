@@ -57,7 +57,7 @@ const createNFTInsideCollection = async () => {
   console.log(`Token Mint:  ${explorerLink}`);
 };
 
-createNFTInsideCollection();
+// createNFTInsideCollection();
 export default createNFTInsideCollection;
 
 export const ARENA_1_NFT_ADDRESS =
