@@ -59,3 +59,7 @@ export default createNFTInsideCollection;
 
 export const ARENA_1_NFT_ADDRESS =
   "8WrxAf7RvAYLmZzWofFHd15JKHwmz55FiJ6UuHshPzSb";
+
+// assignment: create nfts for arena 2 - 11 in this collection and verify them using the verifyMetaplexNFT function.
+
+// image description prompt: `this is an image of an arena champion of one of the realms, you have to give me a description for this character, you're the best fantasy writer in the world, be creative! max 3 sentences and 30 words!`
