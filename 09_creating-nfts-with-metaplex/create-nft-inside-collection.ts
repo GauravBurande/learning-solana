@@ -13,20 +13,20 @@ import { createNft } from "@metaplex-foundation/mpl-token-metadata";
 const createNFTInsideCollection = async () => {
   const collectionNftAddress = UMIPublicKey(NFT_COLLECTION_ADDRESS);
 
-  // const imageFilePath = path.join(
-  //   process.cwd(),
-  //   "09_creating-nfts-with-metaplex/arena-3.png"
-  // );
+  const imageFilePath = path.join(
+    process.cwd(),
+    "09_creating-nfts-with-metaplex/arena-3.png"
+  );
 
-  // const buffer = await fs.readFile(imageFilePath);
-  // const file = createGenericFile(buffer, imageFilePath, {
-  //   contentType: "image/png",
-  // });
+  const buffer = await fs.readFile(imageFilePath);
+  const file = createGenericFile(buffer, imageFilePath, {
+    contentType: "image/png",
+  });
 
-  // const [image] = await umi.uploader.upload([file]);
-  // console.log("NFT image URI:", image);
+  const [image] = await umi.uploader.upload([file]);
+  console.log("NFT image URI:", image);
 
-  const image = `https://raw.githubusercontent.com/GauravBurande/learning-solana/refs/heads/main/09_creating-nfts-with-metaplex/arena-11.png`;
+  // const image = `https://raw.githubusercontent.com/GauravBurande/learning-solana/refs/heads/main/09_creating-nfts-with-metaplex/arena-11.png`;
 
   const uri = await umi.uploader.uploadJson({
     name: "Arena 11",
@@ -74,7 +74,5 @@ export const ARENA_7_NFT_ADDRESS =
 
 export const ARENA_11_NFT_ADDRESS =
   "8XurBgd5yXTeU6BMG8WFqfqJwjyc1dcGKcXJXKPetdxS";
-
-// assignment: create nfts for arena 2 - 11 in this collection and verify them using the verifyMetaplexNFT function.
 
 // image description prompt: `this is an image of an arena champion of one of the realms, you have to give me a description for this character, you're the best fantasy writer in the world, be creative! max 3 sentences and 30 words!`
