@@ -49,7 +49,7 @@ const createNFTInsideCollection = async () => {
     },
   });
 
-  await transaction.sendAndConfirm(umi);
+  await transaction.sendAndConfirm(umi, { send: { commitment: "confirmed" } });
 
   let explorerLink = getExplorerLink("address", mint.publicKey, "devnet");
   console.log(`Token Mint:  ${explorerLink}`);

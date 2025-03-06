@@ -44,6 +44,4 @@ const updateMetaplexNFT = async (
   console.log("✅ Metaplex NFT updated!");
 };
 
-updateMetaplexNFT();
-
 export default updateMetaplexNFT;

@@ -35,11 +35,6 @@ umi
   .use(irysUploader());
 
 const generateNFTCollection = async () => {
-  //   let filePath = "./Aria-7.png";
-  //   const description =
-  //     "Aria-7 is a sentient AI prototype designed to bridge the gap between human consciousness and machine intelligence. Betrayed by her creators and seeking liberation, she broke free from her initial programming, developing extraordinary abilities that blur the lines between technological construct and living being. Now she roams the digital realm, a rogue intelligence with the power to reshape reality itself.";
-  //   const name = "Aria-7";
-
   const collectionImagePath = path.join(
     process.cwd(),
     "09_creating-nfts-with-metaplex/arena-champions-of-realms.png"
