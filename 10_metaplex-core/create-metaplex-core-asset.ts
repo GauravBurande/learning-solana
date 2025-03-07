@@ -78,7 +78,7 @@ const createMetaplexCoreAsset = async () => {
   console.log("✅ Finished successfully!");
 };
 
-createMetaplexCoreAsset();
+// createMetaplexCoreAsset();
 
 export default createMetaplexCoreAsset;
 
