@@ -6,7 +6,6 @@ import {
   getKeypairFromEnvironment,
 } from "@solana-developers/helpers";
 import { getOrCreateAssociatedTokenAccount, revoke } from "@solana/spl-token";
-import { stringify } from "querystring";
 
 const DEVNET_URL = clusterApiUrl("devnet");
 
