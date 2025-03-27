@@ -3,7 +3,7 @@ import {
   getKeypairFromEnvironment,
 } from "@solana-developers/helpers";
 import { getOrCreateAssociatedTokenAccount } from "@solana/spl-token";
-import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
+import { clusterApiUrl, Connection } from "@solana/web3.js";
 import "dotenv/config";
 import { TRAINING_MINT_ADDRESS } from "./create-token-mint";
 
